@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 import { Octokit } from "@octokit/core";
 import { Spin } from "antd";
 
-interface ProjectCardProps {
+interface DesignCardProps {
   project: Project;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function DesignCard({ project }: DesignCardProps) {
   const [repositories, setRepositories] = useState<ProjectDev[]>([]);
   const [loading, setLoading] = useState(true);
   const [githubProjects, setGithubProjects] = useState<any[]>([]);
@@ -59,41 +59,38 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <Spin spinning={loading}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {githubProjects.map((project, index) => (
-            <div
-              key={index}
-              className="mb-6 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md transition-transform transform hover:scale-105 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-between">
+          <div key={index} className="mb-6 bg-gray-50 rounded-lg p-4">
+            <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <h4 className="font-medium text-gray-900 dark:text-white">{project.name}</h4>
+                <h4 className="font-medium text-gray-900">{project.name}</h4>
                 <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-2 text-blue-600 hover:text-blue-800"
                 >
-                <ExternalLink className="w-4 h-4" />
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
-              <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex items-center space-x-4 text-sm text-gray-600">
                 <span className="flex items-center">
-                <Star className="w-4 h-4 mr-1" />
-                {project.stars}
+                  <Star className="w-4 h-4 mr-1" />
+                  {project.stars}
                 </span>
                 <span className="flex items-center">
-                <GitFork className="w-4 h-4 mr-1" />
-                {project.forks}
+                  <GitFork className="w-4 h-4 mr-1" />
+                  {project.forks}
                 </span>
-              </div>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mt-2">{project.description}</p>
-              <div className="mt-2 flex items-center justify-between">
-              <span className="text-sm text-blue-600 dark:text-blue-400">{project.language}</span>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                Updated: {project.updatedAt}
-              </span>
               </div>
             </div>
+            <p className="text-gray-600 mt-2">{project.description}</p>
+            <div className="mt-2 flex items-center justify-between">
+              <span className="text-sm text-blue-600">{project.language}</span>
+              <span className="text-sm text-gray-500">
+                Updated: {project.updatedAt}
+              </span>
+            </div>
+          </div>
         ))}
       </div>
     </Spin>

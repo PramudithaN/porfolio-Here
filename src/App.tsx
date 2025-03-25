@@ -4,11 +4,15 @@ import Header from './components/Header';
 import SocialLinks from './components/SocialLinks';
 import { projects, socialLinks } from './data';
 import ProjectCard from './components/ProjectCard';
+import Contact from './components/Contact';
+import DesignCard from './components/DesignCard';
 
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -95,13 +99,15 @@ function App() {
               </div>
             </div>
           </div>
-          <a
-            href="#experience"
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-            onClick={() => setActiveSection('experience')}
-          >
-            <ArrowDown className="h-8 w-8 text-gray-400 dark:text-gray-500" />
-          </a>
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <a
+              href="#experience"
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce"
+              onClick={() => setActiveSection('experience')}
+            >
+              <ArrowDown className="h-8 w-8 text-gray-400 dark:text-gray-500" />
+            </a>
+            </div>
         </div>
       </section>
 
@@ -175,13 +181,13 @@ function App() {
       <section id="development" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Development Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> */}
             {projects
               .filter((project) => project.category === 'development')
               .map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
-          </div>
+          {/* </div> */}
         </div>
       </section>
 
@@ -189,32 +195,18 @@ function App() {
       <section id="design" className="py-20 px-4 bg-white dark:bg-gray-800">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Design Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> */}
             {projects
               .filter((project) => project.category === 'design')
               .map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <DesignCard key={project.id} project={project} />
               ))}
-          </div>
+          {/* </div> */}
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto max-w-6xl text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Let's Work Together</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            I'm always open to new projects and opportunities.
-          </p>
-          <a
-            href="mailto:your.email@example.com"
-            className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
-          >
-            <Mail className="h-5 w-5" />
-            Get in Touch
-          </a>
-        </div>
-      </section>
+     <Contact />
     </div>
   );
 }
