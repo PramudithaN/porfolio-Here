@@ -8,6 +8,16 @@ export interface Project {
     link?: string;
   }
   
+  export interface ProjectDev {
+    id: number;
+    name: string;
+    description: string;
+    html_url: string;
+    topics?: string[];
+    owner: {
+      avatar_url: string;
+    };
+  }
   export interface SocialLink {
     platform: string;
     url: string;

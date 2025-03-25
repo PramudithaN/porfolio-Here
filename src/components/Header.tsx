@@ -23,10 +23,10 @@ export default function Header({ activeSection, setActiveSection, theme, toggleT
       {/* Background gradient overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2672')",
-          opacity: '0.15'
-        }}
+        // style={{
+        //   backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2672')",
+        //   opacity: '0.15'
+        // }}
       />
       
       {/* Gradient overlay */}
