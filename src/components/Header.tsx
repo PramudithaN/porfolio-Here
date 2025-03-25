@@ -30,7 +30,7 @@ export default function Header({ activeSection, setActiveSection, theme, toggleT
       />
       
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white dark:from-gray-900 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white dark:from-zinc-950 to-transparent" />
 
       <nav className="container relative mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -51,7 +51,7 @@ export default function Header({ activeSection, setActiveSection, theme, toggleT
                 className={`text-sm font-medium transition-colors hover:text-indigo-600 ${
                   activeSection === item.name.toLowerCase() 
                     ? 'text-indigo-600' 
-                    : 'text-gray-700 dark:text-gray-300'
+                    : 'text-zinc-700 dark:text-zinc-300'
                 }`}
                 onClick={() => setActiveSection(item.name.toLowerCase())}
               >
@@ -60,12 +60,12 @@ export default function Header({ activeSection, setActiveSection, theme, toggleT
             ))}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
             >
               {theme === 'light' ? (
-                <Moon className="h-5 w-5 text-gray-700" />
+                <Moon className="h-5 w-5 text-zinc-700" />
               ) : (
-                <Sun className="h-5 w-5 text-gray-300" />
+                <Sun className="h-5 w-5 text-zinc-300" />
               )}
             </button>
           </div>
@@ -74,12 +74,12 @@ export default function Header({ activeSection, setActiveSection, theme, toggleT
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
             >
               {theme === 'light' ? (
-                <Moon className="h-5 w-5 text-gray-700" />
+                <Moon className="h-5 w-5 text-zinc-700" />
               ) : (
-                <Sun className="h-5 w-5 text-gray-300" />
+                <Sun className="h-5 w-5 text-zinc-300" />
               )}
             </button>
             <button
@@ -104,7 +104,7 @@ export default function Header({ activeSection, setActiveSection, theme, toggleT
                 className={`block py-2 text-sm font-medium ${
                   activeSection === item.name.toLowerCase() 
                     ? 'text-indigo-600' 
-                    : 'text-gray-700 dark:text-gray-300'
+                    : 'text-zinc-700 dark:text-zinc-300'
                 }`}
                 onClick={() => {
                   setActiveSection(item.name.toLowerCase());
