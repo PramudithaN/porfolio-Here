@@ -26,32 +26,32 @@ export const projects: Project[] = [
 export const socialLinks: SocialLink[] = [
   {
     platform: "LinkedIn",
-    url: "https://linkedin.com/in/yourusername",
+    url: "https://linkedin.com/in/pramuditha-nadun-612b1b204",
     icon: "Linkedin"
   },
   {
     platform: "GitHub",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/PramudithaN",
     icon: "Github"
   },
   {
     platform: "Behance",
-    url: "https://behance.net/yourusername",
+    url: "https://behance.net/pramudithanadun1",
     icon: "Palette"
   },
   {
     platform: "Instagram",
-    url: "https://instagram.com/yourusername",
+    url: "https://instagram.com/ad0be_prama",
     icon: "Instagram"
   },
   {
     platform: "Fiverr",
-    url: "https://fiverr.com/yourusername",
+    url: "https://fiverr.com/prama_works",
     icon: "ExternalLink"
   },
   {
     platform: "Pinterest",
-    url: "https://pinterest.com/yourusername",
+    url: "https://pinterest.com/ad0bep",
     icon: "Pin"
   }
 ];

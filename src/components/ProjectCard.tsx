@@ -21,7 +21,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         const response = await octokit.request("GET /users/{username}/repos", {
           username: "PramudithaN",
           sort: "updated",
-          per_page: 6,
+          // per_page: 6,
           headers: { "X-GitHub-Api-Version": "2022-11-28" },
         });
         interface GithubRepo {
@@ -61,11 +61,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {githubProjects.map((project, index) => (
             <div
               key={index}
-              className="mb-6 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md transition-transform transform hover:scale-105 hover:shadow-lg"
+              className="mb-6 bg-white dark:bg-zinc-800 rounded-lg p-4 shadow-md transition-transform transform hover:scale-105 hover:shadow-lg"
             >
               <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <h4 className="font-medium text-gray-900 dark:text-white">{project.name}</h4>
+                <h4 className="font-medium text-zinc-900 dark:text-white">{project.name}</h4>
                 <a
                 href={project.link}
                 target="_blank"
@@ -75,7 +75,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
-              <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex items-center space-x-4 text-sm text-zinc-600 dark:text-zinc-400">
                 <span className="flex items-center">
                 <Star className="w-4 h-4 mr-1" />
                 {project.stars}
@@ -86,10 +86,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </span>
               </div>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mt-2">{project.description}</p>
+              <p className="text-zinc-600 dark:text-zinc-300 mt-2">{project.description}</p>
               <div className="mt-2 flex items-center justify-between">
               <span className="text-sm text-blue-600 dark:text-blue-400">{project.language}</span>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-sm text-zinc-500 dark:text-zinc-400">
                 Updated: {project.updatedAt}
               </span>
               </div>
@@ -101,20 +101,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     //   {repositories.map((repo) => (
     //     <div
     //       key={repo.id}
-    //       className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-lg transition-all hover:shadow-xl"
+    //       className="group relative overflow-hidden rounded-xl bg-white dark:bg-zinc-800 shadow-lg transition-all hover:shadow-xl"
     //     >
     //       <div className="p-6">
-    //         <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+    //         <h3 className="text-xl font-semibold text-zinc-900 dark:text-white">
     //           {repo.name}
     //         </h3>
-    //         <p className="mt-2 text-gray-600 dark:text-gray-300">
+    //         <p className="mt-2 text-zinc-600 dark:text-zinc-300">
     //           {repo.description || "No description available"}
     //         </p>
     //         <div className="mt-4 flex flex-wrap gap-2">
     //           {repo.topics?.map((topic) => (
     //             <span
     //               key={topic}
-    //               className="rounded-full bg-gray-100 dark:bg-gray-700 px-3 py-1 text-sm text-gray-700 dark:text-gray-300"
+    //               className="rounded-full bg-zinc-100 dark:bg-zinc-700 px-3 py-1 text-sm text-zinc-700 dark:text-zinc-300"
     //             >
     //               {topic}
     //             </span>
